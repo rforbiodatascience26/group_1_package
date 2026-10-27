@@ -1,0 +1,20 @@
+Package: LabMolercularBiology
+Type: Package
+Title: What the Package Does (Title Case)
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Anastasia", "Baltzi",
+      email = "s253566@dtu.dk",
+      role = c("aut", "cre")
+    )
+    person(
+      "Apostolos", "Papachristakis",
+      email = "s263513@dtu.dk",
+      role = c("aut")
+    )
+  )
+Description: Replication of the central dogma of Molecular Biology 
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
