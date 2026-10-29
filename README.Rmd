@@ -1,0 +1,80 @@
+---
+title: "Introduction to LabMolecularBiology"
+output: rmarkdown::github_document
+vignette: >
+  %\VignetteIndexEntry{Introduction to LabMolecularBiology}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.width = 6,
+  fig.height = 4
+)
+```
+
+## GitHub Repository
+
+Repository: [https://github.com/rforbiodatascience26/group_1_package](https://github.com/rforbiodatascience26/group_1_package)
+
+## Overview
+
+The `LabMolecularBiology` package replicates the central dogma of molecular biology. It models the biochemical flow of genetic information: generating DNA sequences, transcribing them into RNA, splitting RNA into codons, translating codons into an amino acid sequence, and visualizing amino acid frequencies.
+
+## Central Dogma Workflow
+
+```{r setup}
+library(LabMolecularBiology)
+```
+
+### 1. Generating DNA
+We generate a synthetic random DNA sequence of length 30:
+
+```{r}
+set.seed(42)
+dna <- generate_dna(30)
+dna
+```
+
+### 2. Transcription
+DNA is transcribed into messenger RNA by replacing thymine with uracil:
+
+```{r}
+rna <- transcribe_dna(dna)
+rna
+```
+
+### 3. Codon Splitting
+The RNA sequence is partitioned into successive nucleotide triplets (codons):
+
+```{r}
+codons <- split_codons(rna, start = 1)
+codons
+```
+
+### 4. Translation
+Using the internal standard codon table (`codon_table`), codons are translated into single-letter amino acid codes:
+
+```{r}
+protein <- translate_codons(codons)
+protein
+```
+
+### 5. Amino Acid Frequency Visualization
+Finally, we quantify the amino acid distribution across the translated sequence:
+
+```{r}
+plot_amino_acids(protein)
+```
+
+## Potential Use Cases and Future Extensions
+
+This package serves as a foundational educational tool for computational biology students. It can be extended with functions for open reading frame (ORF) finding across all six frames, reverse complement calculation, transcription factor binding motif searches, and calculation of molecular weights.
+
+## Group Discussion Summary
+
+- **Dependencies:** Restricting external dependencies minimizes maintenance overhead and reduces vulnerability to breaking upstream changes. External packages are integrated when implementing complex visualization (`ggplot2`) or optimized string parsing (`stringr`) from scratch is impractical.
+- **Namespace Management:** Using explicit `package::function()` syntax provides code transparency and prevents naming collisions, while `@importFrom` imports selected functions directly into the package namespace for concise code.

@@ -1,20 +1,21 @@
 Package: LabMolercularBiology
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
+Title: Central Dogma of Molecular Biology
+Version: 0.0.0.9000
 Authors@R: c(
-    person(
-      "Anastasia", "Baltzi",
-      email = "s253566@dtu.dk",
-      role = c("aut", "cre")
-    )
-    person(
-      "Apostolos", "Papachristakis",
-      email = "s263513@dtu.dk",
-      role = c("aut")
-    )
+    person("Anastasia", "Baltzi", email = "anastasia@example.com", role = c("aut", "cre")),
+    person("Group", "Member", email = "student@dtu.dk", role = "aut")
   )
-Description: Replication of the central dogma of Molecular Biology 
+Description: Simulates the central dogma of molecular biology including DNA generation, transcription, codon splitting, translation, and amino acid visualization.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.2
+Imports:
+    ggplot2,
+    stringr
+Suggests:
+    knitr,
+    rmarkdown,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+VignetteBuilder: knitr
